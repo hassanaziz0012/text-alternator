@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alternate Casing Converter</title>
+	<meta charset="UTF-8">
+	<style>
+		.container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.textarea {
+			height: 200px;
+			width: 300px;
+			margin-right: 20px;
+		}
+
+		.output {
+			height: 200px;
+			width: 300px;
+			padding: 10px;
+			background-color: #f2f2f2;
+			overflow-wrap: break-word;
+		}
+
+		.button {
+			background-color: #007bff;
+			color: white;
+			font-weight: bold;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		.button:hover {
+			background-color: #0062cc;
+		}
+	</style>
+</head>
+<body>
+	<h1>Text Alternator</h1>
+	<p>For those moments when you want to mock someone online but are too lazy to switch your casing in every sentence. *insert laughing emojis*</p>
+	<div class="container">
+		<textarea class="textarea" id="input-text"></textarea>
+		<div class="output" id="output-text"></div>
+	</div>
+	<button class="button" onclick="convertText()">Convert</button>
+	<script>
+		function convertText() {
+			var input = document.getElementById("input-text").value;
+			var output = "";
+			for (var i = 0; i < input.length; i++) {
+				if (i % 2 == 0) {
+					output += input.charAt(i).toLowerCase();
+				} else {
+					output += input.charAt(i).toUpperCase();
+				}
+			}
+			document.getElementById("output-text").innerHTML = output;
+		}
+	</script>
+</body>
+</html>
